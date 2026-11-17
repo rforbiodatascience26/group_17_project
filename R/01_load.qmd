@@ -2,10 +2,31 @@
 title: "01_load.qmd"
 format: html
 editor: visual
+#| echo: true
+#| eval: true
 ---
 
 ## Load data
 
-```{r}
+`echo` and `eval` set to true so we keep the code visible and avoid retrieving online data everytime.
 
+```{r}
+#| echo: true
+#| eval: true
+```
+
+Loaded the `tidyverse` library:
+
+```{r}
+library(tidyverse)
+```
+
+For reproducibility, the dataset was programmatically retrieved from the hbiostat online repository. To do that, we created a local directory where the dataset was stored and loaded into the R environment. Eliminated warnings in case the data directory is already there.
+
+```{r}
+dir.create(path = "data", showWarnings = FALSE)
+
+load(url("https://hbiostat.org/data/repo/prostate.rda"))
+
+write_csv(x = prostate, file = "data/prostate_cancer.csv")
 ```
