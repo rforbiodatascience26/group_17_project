@@ -4,4 +4,16 @@ format: html
 editor: visual
 ---
 
+## Load libraries and data
+
+```{r}
+library("tidyverse")
+
+patient_baseline_clean <- read_csv(file = "data/patient_baseline_clean.csv", 
+                        show_col_types = FALSE)
+
+treatment_outcomes_clean_clean <- read_csv(file = "data/treatment_outcomes_clean.csv", 
+                        show_col_types = FALSE)
+```
+
 ## Age group

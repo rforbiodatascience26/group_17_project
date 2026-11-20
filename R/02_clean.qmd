@@ -5,6 +5,8 @@ format: html
 
 ## Clean data
 
+### Load libraries
+
 ```{R}
 library("tidyverse")
 ```
@@ -12,7 +14,7 @@ library("tidyverse")
 ### Rename columns
 
 ```{R}
-cancer_data_c1 <- read_csv(file = "data/prostate_cancer.csv", 
+prostate_cancer <- read_csv(file = "data/prostate_cancer.csv", 
                         show_col_types = FALSE) |> 
   
 # Columns are renamed for better description
@@ -37,7 +39,7 @@ cancer_data_c1 <- read_csv(file = "data/prostate_cancer.csv",
 ### Unpack status column
 
 ```{R}
-cancer_data_c2 <- cancer_data_c1 |>
+cancer_data_c1 <- prostate_cancer |>
 separate_wider_delim(
   status,
   delim = " - ",
@@ -49,7 +51,7 @@ separate_wider_delim(
 ### Replace non-descriptive abbreviations
 
 ```{R}
-cancer_data_c3 <- cancer_data_c2 |>
+cancer_data_c2 <- cancer_data_c1 |>
   mutate(
     death_cause = str_replace(death_cause, " ca$", " cancer"),
     baseline_electrocardiogram = case_match(
@@ -67,7 +69,7 @@ cancer_data_c3 <- cancer_data_c2 |>
 ```{R}
 # Splited the cleaned dataset by patient attributes, and treatment and follow-up outcomes, linked by patient number.
 
-patient_baseline <- cancer_data_c3 |>
+patient_baseline <- cancer_data_c2 |>
   select(
     patient_num, 
     stage, 
@@ -85,7 +87,7 @@ patient_baseline <- cancer_data_c3 |>
     bone_metastasis
   )
 
-treatment_outcomes <- cancer_data_c3 |>
+treatment_outcomes <- cancer_data_c2 |>
   select(
     patient_num, 
     estrogen_treatment, 
@@ -93,4 +95,11 @@ treatment_outcomes <- cancer_data_c3 |>
     vital_status, 
     death_cause
   )
+```
+
+### Storing files
+
+```{R}
+write_csv(x = patient_baseline, file = "data/patient_baseline_clean.csv")
+write_csv(x = treatment_outcomes, file = "data/treatment_outcomes_clean.csv")
 ```
