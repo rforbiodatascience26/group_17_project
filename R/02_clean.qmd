@@ -1,0 +1,14 @@
+---
+title: "02_clean"
+format: html
+---
+```{R}
+library("tidyverse")
+```
+
+```{R}
+cancer_data <- read_csv(file = "data/prostate_cancer.csv")
+rename(cancer_data,Patient_Number = patno, Estrogen_Treatment = rx,Follow_Up_Months = dtime, Weight = wt, Performance = pf, History_Of_Heart_Disease = hx, Primary_Tumor_Size= sz, Stage_And_Histological_Grade = sg, Mestazised_To_Bones = bm)
+
+
+``` 
