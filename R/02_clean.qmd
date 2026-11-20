@@ -2,13 +2,95 @@
 title: "02_clean"
 format: html
 ---
+
+## Clean data
+
 ```{R}
 library("tidyverse")
 ```
 
+### Rename columns
+
 ```{R}
-cancer_data <- read_csv(file = "data/prostate_cancer.csv")
-rename(cancer_data,Patient_Number = patno, Estrogen_Treatment = rx,Follow_Up_Months = dtime, Weight = wt, Performance = pf, History_Of_Heart_Disease = hx, Primary_Tumor_Size= sz, Stage_And_Histological_Grade = sg, Mestazised_To_Bones = bm)
+cancer_data_c1 <- read_csv(file = "data/prostate_cancer.csv", 
+                        show_col_types = FALSE) |> 
+  
+# Columns are renamed for better description
+  rename(
+  patient_num = patno,
+  estrogen_treatment = rx,
+  follow_up_months = dtime, 
+  weight = wt, 
+  performance = pf, 
+  heart_disease_history = hx,
+  systolic_bp_10 = sbp,
+  diastolic_bp_10 = dbp,
+  baseline_electrocardiogram = ekg,
+  serum_hemoglobin = hg,
+  primary_tumor_size= sz, 
+  stage_and_histological_grade = sg,
+  prostatic_acid_phosphatase = ap,
+  bone_metastasis = bm,
+  )
+```
 
+### Unpack status column
 
-``` 
+```{R}
+cancer_data_c2 <- cancer_data_c1 |>
+separate_wider_delim(
+  status,
+  delim = " - ",
+  names = c("vital_status", "death_cause"),
+  too_few = "align_start"
+)
+```
+
+### Replace non-descriptive abbreviations
+
+```{R}
+cancer_data_c3 <- cancer_data_c2 |>
+  mutate(
+    death_cause = str_replace(death_cause, " ca$", " cancer"),
+    baseline_electrocardiogram = case_match(
+      baseline_electrocardiogram,
+      "heart block or conduction def" ~ "heart block or conduction defect",
+      "old MI" ~ "old myocardial infarction",
+      "rhythmic disturb & electrolyte ch" ~ "rhythmic disturbance and electrolyte changes",
+      .default = baseline_electrocardiogram
+    )
+  )
+```
+
+### Data split
+
+```{R}
+# Splited the cleaned dataset by patient attributes, and treatment and follow-up outcomes, linked by patient number.
+
+patient_baseline <- cancer_data_c3 |>
+  select(
+    patient_num, 
+    stage, 
+    age, 
+    weight, 
+    performance,
+    heart_disease_history, 
+    systolic_bp_10, 
+    diastolic_bp_10,
+    baseline_electrocardiogram, 
+    serum_hemoglobin, 
+    primary_tumor_size,
+    stage_and_histological_grade,
+    prostatic_acid_phosphatase, 
+    bone_metastasis
+  )
+
+treatment_outcomes <- cancer_data_c3 |>
+  select(
+    patient_num, 
+    estrogen_treatment, 
+    follow_up_months,
+    vital_status, 
+    death_cause
+  )
+```
