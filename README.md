@@ -1,13 +1,7 @@
 # R for Bio Data Science Project - Group 17
 
-## Contributors
+## Overview
 
-| Name                                       | Student number | GitHub username |
-|--------------------------------------------|----------------|-----------------|
-| Tijn Friederich                            | s262015        | DTUTWFriederich |
-| Caroline Aroha Schmidt Morthorst Rasmussen | s215120        | CR-Biotech      |
-| Andrea López Martinez                      | s243342        | andrealomar     |
-| Marc Magem Planàs                          | s253362        | mmagemm         |
 
 ## Dataset
 
@@ -41,4 +35,18 @@ Our dataset contains N = 502 observations across 18 variables:
 | `sdate` | Date of study                                  | Numeric     |
 
 
-## Load data
+## Project structure
+
+
+## How to run
+
+
+## Contributors
+
+| Name                                       | Student number | GitHub username |
+|--------------------------------------------|----------------|-----------------|
+| Tijn Friederich                            | s262015        | DTUTWFriederich |
+| Caroline Aroha Schmidt Morthorst Rasmussen | s215120        | CR-Biotech      |
+| Andrea López Martinez                      | s243342        | andrealomar     |
+| Marc Magem Planàs                          | s253362        | mmagemm         |
+

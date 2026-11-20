@@ -2,20 +2,9 @@
 title: "01_load.qmd"
 format: html
 editor: visual
-#| echo: true
-#| eval: true
 ---
 
-## Load data
-
-`echo` and `eval` set to true so we keep the code visible and avoid retrieving online data everytime.
-
-```{r}
-#| echo: true
-#| eval: true
-```
-
-Loaded the `tidyverse` library:
+### Library loading
 
 ```{r}
 library(tidyverse)

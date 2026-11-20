@@ -30,7 +30,7 @@ cancer_data_c1 <- read_csv(file = "data/prostate_cancer.csv",
   primary_tumor_size= sz, 
   stage_and_histological_grade = sg,
   prostatic_acid_phosphatase = ap,
-  bone_mestastasis = bm,
+  bone_metastasis = bm,
   )
 ```
 
@@ -59,5 +59,38 @@ cancer_data_c3 <- cancer_data_c2 |>
       "rhythmic disturb & electrolyte ch" ~ "rhythmic disturbance and electrolyte changes",
       .default = baseline_electrocardiogram
     )
+  )
+```
+
+### Data split
+
+```{R}
+# Splited the cleaned dataset by patient attributes, and treatment and follow-up outcomes, linked by patient number.
+
+patient_baseline <- cancer_data_c3 |>
+  select(
+    patient_num, 
+    stage, 
+    age, 
+    weight, 
+    performance,
+    heart_disease_history, 
+    systolic_bp_10, 
+    diastolic_bp_10,
+    baseline_electrocardiogram, 
+    serum_hemoglobin, 
+    primary_tumor_size,
+    stage_and_histological_grade,
+    prostatic_acid_phosphatase, 
+    bone_metastasis
+  )
+
+treatment_outcomes <- cancer_data_c3 |>
+  select(
+    patient_num, 
+    estrogen_treatment, 
+    follow_up_months,
+    vital_status, 
+    death_cause
   )
 ```
