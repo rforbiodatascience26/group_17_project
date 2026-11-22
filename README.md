@@ -11,7 +11,7 @@ The data comes from a clinical trial conducted around 1980 (Byar & Green, 1980; 
 
 However, this treatment led to some side effects, being cardiovascular complications the most prevalent and severe. The objective of this project is to study the relationship between estrogen therapy, patient characteristics, and cardiovascular events, and assess how treatment impacted survival.
 
-Our dataset contains N = 502 observations across 18 variables:
+The dataset contains N = 502 observations across 18 variables:
 
 |Variable | Description                                    | Type                                                              |
 |---------| -----------------------------------------------| ------------------------------------------------------------------|
