@@ -14,7 +14,7 @@ library("tidyverse")
 ### Rename columns
 
 ```{R}
-prostate_cancer <- read_csv(file = "../data/prostate.csv", 
+prostate_cancer <- read_csv(file = "../data/01_prostate.csv", 
                         show_col_types = FALSE) |> 
   
 # Columns are renamed for better description
@@ -100,6 +100,6 @@ treatment_outcomes <- cancer_data_c2 |>
 ### Storing files
 
 ```{R}
-write_csv(x = patient_baseline, file = "../data/patient_baseline_clean.csv")
-write_csv(x = treatment_outcomes, file = "../data/treatment_outcomes_clean.csv")
+write_csv(x = patient_baseline, file = "../data/02_patient_baseline_clean.csv")
+write_csv(x = treatment_outcomes, file = "../data/02_treatment_outcomes_clean.csv")
 ```
