@@ -16,4 +16,32 @@ treatment_outcomes_clean_clean <- read_csv(file = "data/treatment_outcomes_clean
                         show_col_types = FALSE)
 ```
 
-## Age group
+### Blood pressure
+
+```{r}
+# Systolic and Diastolic blood presure was recorded in units of 10 mmHg (a historical shorthand convention). Columns are converted to mmHg.
+
+patient_baseline_a1 <- patient_baseline_clean |>
+  mutate(
+    systolic_bp_10 = systolic_bp_10 * 10,
+    diastolic_bp_10 = diastolic_bp_10 * 10
+  )
+```
+
+### Age group
+
+```{r}
+#Age groups were created. Based on the data, three categories were proposed: <65, 65-74 and >75.
+
+patient_baseline_a2 <- patient_baseline_a1 |>
+  mutate(
+    age_group = case_when(
+      age < 65 ~ "<65",
+      age < 75 ~ "65-74",
+      age >= 75 ~ "75+"
+    ) |>
+      fct_relevel("<65", "65-74", "75+")
+  ) |>
+  relocate(age_group,
+           .after = age)
+```
