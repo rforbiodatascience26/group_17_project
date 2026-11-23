@@ -30,6 +30,14 @@ patient_baseline_a1 <- patient_baseline_clean |>
     systolic_bp = systolic_bp_10,
     diastolic_bp = diastolic_bp_10
   )
+patient_baseline_a1 <- patient_baseline_a1 |> mutate(
+  BP_Classification = case_when(
+    systolic_bp < 120 & diastolic_bp < 80 ~ "Normal",
+    systolic_bp < 140 | diastolic_bp < 90 ~ "Prehypertension",
+    systolic_bp < 160 | diastolic_bp < 100 ~ "Stage 1 Hypertension",
+    systolic_bp >= 160 | diastolic_bp >= 100 ~ "Stage 2 Hypertension"
+  ) 
+)
 ```
 
 ### Age group
