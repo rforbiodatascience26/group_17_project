@@ -49,3 +49,29 @@ patient_baseline_a2 <- patient_baseline_a1 |>
   relocate(age_group,
            .after = age)
 ```
+
+### Pulse pressure (PP)
+
+```{r}
+# The pulse pressure (PP) was calculated according to the following formula,
+# Pulse Pressure = Systolic Blood Pressure – Diastolic Blood Pressure,
+# as given by Homan, T. D., Bordes, S. J., & Cichowski, E. (2023, July 10). Physiology, pulse pressure. In StatPearls. StatPearls Publishing. https://www.ncbi.nlm.nih.gov/books/NBK482408/ 
+
+patient_baseline_a3 <- patient_baseline_a2 |>
+  mutate(pulse_pressure = systolic_bp - diastolic_bp) |>
+  relocate(pulse_pressure,
+           .after = diastolic_bp)
+```
+
+### Mean arterial pressure (MAP)
+
+```{r}
+# The mean arterial pressure (MAP) was calculated according to the following formula,
+# MAP = DP + 1/3 * (PP),
+# as given by DeMers, D., & Wachs, D. (2023, April 10). Physiology, mean arterial pressure. In StatPearls. StatPearls Publishing. https://www.ncbi.nlm.nih.gov/books/NBK538226/
+
+patient_baseline_a4 <- patient_baseline_a3 |>
+  mutate(mean_arterial_pressure = diastolic_bp + (1/3 * pulse_pressure) ) |>
+  relocate(mean_arterial_pressure,
+           .after = pulse_pressure)
+```
