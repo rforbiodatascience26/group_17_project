@@ -84,6 +84,22 @@ patient_baseline_a4 <- patient_baseline_a3 |>
            .after = pulse_pressure)
 ```
 
+### Death cause categories
+
+```{r}
+# The death cause variable covers 9 different categories and contains NAs for patients still alive. Some of the death causes are highly related and can be grouped together for a more concise and biologically relevant variable. For example, "heart or vascular", "cerebrovascular", "pulmonary embolus" and "respiratory disease" are all very interconnected within the cardiorespiratory system, meaning they cannot be viewed as fully independent and separate causes in a clinical setting. Furthermore, we are not interested in looking at the difference between the individual cardiorespiratory causes, but rather between cardiorespiratory causes and prostatic cancer. Therefore, a new column is created where they are grouped together under the new category "cardiorespiratory disease". Also, the two categories of "other specific non-ca" and "unspecified non-cancer" will be grouped together as "other non-ca". In total, this gives us the new categories "prostatic cancer", "cardiorespiratory disease", "other cancer", "other non-cancer" and "unknown cause". Patients that are still alive continue to be marked with NAs in this column.
+
+treatment_outcomes_a1 <- treatment_outcomes_clean |>
+  mutate(
+    death_cause_simp = case_when(
+      death_cause %in% c("heart or vascular", "cerebrovascular", "pulmonary embolus", "respiratory disease") ~ "cardiorespiratory disease",
+      str_detect(death_cause, "non-cancer") ~ "other non-cancer",
+      TRUE ~ death_cause
+      )
+    )
+
+```
+
 ### Inspecting columns range
 
 ```{r}
@@ -98,10 +114,10 @@ patient_baseline_a4 |>
 ### Data merge
 
 ```{r}
-# Since both data frames comes from the same original file, as were splitted them before, they contain the same patient numbers, so full_join() works, but also inner_join(), for example.
+# Since both data frames were split from the same original file, they contain the same patient numbers, so full_join() works, but also inner_join(), for example.
 
 cancer_data_augmented <- patient_baseline_a4 |>
-  full_join(treatment_outcomes_clean, by = "patient_num")
+  full_join(treatment_outcomes_a1, by = "patient_num")
 
-view(cancer_data_augmented)
+write_csv(x = cancer_data_augmented, file = "../data/03_cancer_data_augmented.csv")
 ```
