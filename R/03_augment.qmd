@@ -83,3 +83,25 @@ patient_baseline_a4 <- patient_baseline_a3 |>
   relocate(mean_arterial_pressure,
            .after = pulse_pressure)
 ```
+
+### Inspecting columns range
+
+```{r}
+# When inspecting some column values, there is a huge difference in values. We might need to transform it later on.
+patient_baseline_a4 |>
+  summarise(
+    min = min(prostatic_acid_phosphatase),
+    max = max(prostatic_acid_phosphatase)
+  )
+```
+
+### Data merge
+
+```{r}
+# Since both data frames comes from the same original file, as were splitted them before, they contain the same patient numbers, so full_join() works, but also inner_join(), for example.
+
+cancer_data_augmented <- patient_baseline_a4 |>
+  full_join(treatment_outcomes_clean, by = "patient_num")
+
+view(cancer_data_augmented)
+```

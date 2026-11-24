@@ -67,7 +67,7 @@ cancer_data_c2 <- cancer_data_c1 |>
 ### Data split
 
 ```{R}
-# Split the cleaned dataset by patient attributes, and treatment and follow-up outcomes, linked by patient number.
+# Split the cleaned dataset by patient attributes, and treatment outcomes, linked by patient number.
 
 patient_baseline <- cancer_data_c2 |>
   select(
