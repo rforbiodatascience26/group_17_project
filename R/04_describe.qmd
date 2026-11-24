@@ -4,4 +4,25 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Load libraries and data
+
+```{r}
+library("tidyverse")
+
+cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv", 
+                        show_col_types = FALSE)
+```
+
+## Cause of death by treatment
+
+```{r}
+cancer_data_d1 <- cancer_data_augmented |>
+  drop_na(death_cause) |> 
+  count(estrogen_treatment, death_cause)
+  
+  ggplot(cancer_data_d1,
+         aes(x = estrogen_treatment, 
+             y = n,
+             fill = death_cause)) +
+  geom_col(position = "fill")
+```
