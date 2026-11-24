@@ -7,11 +7,13 @@ author:
   - "Andrea López Martinez - s243342 "
   - "Marc Magem Planàs - s253362 "
 institute: "22160 - R for Bio Data Science"
-date: 1st December 2026
+date: today
 
 format: 
   revealjs:
+    embed-resources: true
     theme: simple
+    smaller: true
     slide-number: true
     transition: fade
     code-fold: false
@@ -27,7 +29,7 @@ execute:
 # Check how to format Quarto presentations in html in: https://pandoc.org/MANUAL.html#structuring-the-slide-show or https://quarto.org/docs/presentations/revealjs/
 ```
 
-## Introduction: background
+## Introduction: background {.smaller}
 
 (slide 2)
 
