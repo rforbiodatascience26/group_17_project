@@ -100,8 +100,6 @@ treatment_outcomes_a1 <- treatment_outcomes_clean |>
 
 ```
 
-
-
 ### Inspecting columns range
 
 ```{r}
