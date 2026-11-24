@@ -5,3 +5,53 @@ editor: visual
 ---
 
 ## Quarto
+```{r}
+# Imports
+library(tidyverse)
+```
+
+### Age Group Analyses 
+```{R}
+without_NA <- cancer_data_augmented %>% drop_na(age_group)
+``` 
+
+```{r}
+# blood pressure over age group 
+ggplot(data = without_NA,
+       mapping = aes(x = age_group,
+                     y = mean_arterial_pressure)) +
+  geom_boxplot()
+```
+```{R}
+  ggplot(data = without_NA,
+       mapping = aes(x = age_group,
+                     y = prostatic_acid_phosphatase)) +
+  geom_boxplot() + scale_y_continuous(trans='log10')
+```
+
+```{R}
+ggplot(without_NA, aes(age, heart_disease_history)) +
+  geom_jitter(height = 0.03, alpha = 0.3) +
+  geom_smooth(method = "glm", method.args = list(family = binomial)) +
+  labs(y = "P(heart disease history)")
+```
+
+
+```{R}
+  ggplot(data = without_NA,
+       mapping = aes(x = age_group,
+                     y = baseline_electrocardiogram)) +
+  geom_count()
+```
+```{R}
+  ggplot(data = without_NA,
+       mapping = aes(x = age_group,
+                     y = serum_hemoglobin)) +
+  geom_boxplot()
+```
+```{R}
+  ggplot(data = without_NA,
+       mapping = aes(x = age,
+                     y = age_group)) +
+  geom_col()
+```
