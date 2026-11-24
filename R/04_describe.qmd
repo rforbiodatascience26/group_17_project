@@ -8,6 +8,7 @@ editor: visual
 
 ```{r}
 library("tidyverse")
+library("table1")
 
 cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv", 
                         show_col_types = FALSE)
@@ -26,3 +27,17 @@ cancer_data_d1 <- cancer_data_augmented |>
              fill = death_cause)) +
   geom_col(position = "fill")
 ```
+## Overview tables
+
+```{r}
+cancer_data_augmented |>
+  table1(x = formula(~ age + weight | estrogen_treatment),
+         data = _)
+```
+
+```{r}
+cancer_data_augmented |>
+  table1(x = formula(~ vital_status + death_cause | estrogen_treatment),
+         data = _)
+```
+
