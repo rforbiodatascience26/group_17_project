@@ -14,7 +14,7 @@ library("tidyverse")
 ### Rename columns
 
 ```{R}
-prostate_cancer <- read_csv(file = "../data/01_prostate.csv", 
+prostate_cancer <- read_csv(file = "../data/01_cancer_data.csv", 
                         show_col_types = FALSE) |> 
   
 # Columns are renamed for better description

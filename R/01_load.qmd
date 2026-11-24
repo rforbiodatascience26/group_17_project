@@ -43,7 +43,7 @@ For transparency and accessibility outside of R, the data was converted into a c
 
 ```{r}
 data_dir <- "../data/"
-data_conv <- "01_prostate.csv"
+data_conv <- "01_cancer_data.csv"
 
 write_csv(
   x = prostate,
