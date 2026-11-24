@@ -39,6 +39,20 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
   labs(y = "Heart disease history")
 ```
 
+## Cause of death by treatment
+
+```{r}
+cancer_data_d1 <- cancer_data_augmented |>
+  drop_na(death_cause_simp) |> 
+  count(estrogen_treatment, death_cause_simp)
+  
+  ggplot(cancer_data_d1,
+         aes(x = estrogen_treatment, 
+             y = n,
+             fill = death_cause_simp)) +
+  geom_col(position = "fill") +
+    scale_fill_viridis_d()
+```
 ```{R}
 # age groups are of different sizes. Look at the relative distribution 
   ggplot(data = without_NA,
