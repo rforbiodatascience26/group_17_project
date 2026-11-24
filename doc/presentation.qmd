@@ -1,0 +1,66 @@
+---
+title: "Estrogen therapy and cardiovascular risk in prostate cancer"
+subtitle: ""
+author: 
+  - "Tijn Friederich - s262015 "
+  - "Caroline Aroha Schmidt Morthorst Rasmussen - s215120 "
+  - "Andrea López Martinez - s243342 "
+  - "Marc Magem Planàs - s253362 "
+institute: "22160 - R for Bio Data Science"
+date: today
+
+format: 
+  revealjs:
+    embed-resources: true
+    theme: simple
+    smaller: true
+    slide-number: true
+    transition: fade
+    code-fold: false
+editor: visual
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+# Check how to format Quarto presentations in html in: https://pandoc.org/MANUAL.html#structuring-the-slide-show or https://quarto.org/docs/presentations/revealjs/
+```
+
+## Introduction: background {.smaller}
+
+(slide 2)
+
+## Introduction: objectives and research question
+
+(slide 3)
+
+## Materials and methods: data cleaning and transformation
+
+(slide 4)
+
+## Materials and methods: analysis and modeling
+
+(slide 5)
+
+## Results
+
+(slide 6)
+
+## Results
+
+(slide 7)
+
+## Results
+
+(slide 8)
+
+## Results
+
+(slide 9)
+
+## Discussion
+
+(slide 10) - main findings, limitations and future steps

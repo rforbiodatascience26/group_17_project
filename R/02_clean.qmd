@@ -14,7 +14,7 @@ library("tidyverse")
 ### Rename columns
 
 ```{R}
-prostate_cancer <- read_csv(file = "../data/01_prostate.csv", 
+prostate_cancer <- read_csv(file = "../data/01_cancer_data.csv", 
                         show_col_types = FALSE) |> 
   
 # Columns are renamed for better description
@@ -53,7 +53,7 @@ separate_wider_delim(
 ```{R}
 cancer_data_c2 <- cancer_data_c1 |>
   mutate(
-    death_cause = str_replace(death_cause, " ca$", " cancer"),
+    death_cause = str_replace(death_cause, "ca$", "cancer"),
     baseline_electrocardiogram = case_match(
       baseline_electrocardiogram,
       "heart block or conduction def" ~ "heart block or conduction defect",
