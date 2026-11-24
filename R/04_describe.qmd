@@ -60,5 +60,9 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
   geom_col()
 ```
 ```{R}
-# here I want to plot if there is a correlation between cancer stage and age at death
+# here I want to plot if there is a correlation between cancer stage and age at death. 
+  ggplot(data = without_NA,
+       mapping = aes(x = age_group,
+                     y = death_cause)) +
+  geom_count()
 ```
