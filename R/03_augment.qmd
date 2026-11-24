@@ -121,5 +121,5 @@ patient_baseline_a4 |>
 cancer_data_augmented <- patient_baseline_a4 |>
   full_join(treatment_outcomes_a1, by = "patient_num")
 
-view(cancer_data_augmented)
+write_csv(x = cancer_data_augmented, file = "../data/03_cancer_data_augmented.csv")
 ```
