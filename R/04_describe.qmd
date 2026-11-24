@@ -38,6 +38,7 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
 
 
 ```{R}
+# age groups are of different sizes. Look at the relative distribution 
   ggplot(data = without_NA,
        mapping = aes(x = age_group,
                      y = baseline_electrocardiogram)) +
@@ -54,4 +55,7 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
        mapping = aes(x = age,
                      y = age_group)) +
   geom_col()
+```
+```{R}
+# here I want to plot if there is a correlation between cancer stage and age at death
 ```
