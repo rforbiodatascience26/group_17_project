@@ -4,4 +4,27 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Load libraries and data
+
+```{r}
+library("tidyverse")
+library("table1")
+
+cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv", 
+                        show_col_types = FALSE)
+```
+
+## Overview tables
+
+```{r}
+cancer_data_augmented |>
+  table1(x = formula(~ age + weight | estrogen_treatment),
+         data = _)
+```
+
+```{r}
+cancer_data_augmented |>
+  table1(x = formula(~ vital_status + death_cause | estrogen_treatment),
+         data = _)
+```
+
