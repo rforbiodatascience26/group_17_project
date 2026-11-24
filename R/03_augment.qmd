@@ -116,7 +116,7 @@ patient_baseline_a4 |>
 ### Data merge
 
 ```{r}
-# Since both data frames comes from the same original file, as were splitted them before, they contain the same patient numbers, so full_join() works, but also inner_join(), for example.
+# Since both data frames were split from the same original file, they contain the same patient numbers, so full_join() works, but also inner_join(), for example.
 
 cancer_data_augmented <- patient_baseline_a4 |>
   full_join(treatment_outcomes_a1, by = "patient_num")
