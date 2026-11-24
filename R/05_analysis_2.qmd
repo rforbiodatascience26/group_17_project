@@ -18,7 +18,7 @@ cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv",
 ### Kaplan-Meier survival estimate
 
 ```{r}
-# Comes from https://www.emilyzabor.com/survival-analysis-in-r.html
+# Follow the steps from https://www.emilyzabor.com/survival-analysis-in-r.html until we fit the model and create a model object
 
 cancer_data_augmented <- cancer_data_augmented |>
   mutate(
@@ -30,7 +30,7 @@ surv_fit <- cancer_data_augmented |> survfit(Surv(time = follow_up_months, event
 ```
 
 ```{r}
-# Using broom-package with tidy() function
+# Then we use the broom-package with the tidy() function to extract the data from the model object
 surv_data <- surv_fit |>
   tidy()
 
