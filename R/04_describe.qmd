@@ -23,6 +23,7 @@ ggplot(data = without_NA,
   geom_boxplot()
 ```
 ```{R}
+# Prostatic acid phosphatase over age group
   ggplot(data = without_NA,
        mapping = aes(x = age_group,
                      y = prostatic_acid_phosphatase)) +
@@ -30,10 +31,11 @@ ggplot(data = without_NA,
 ```
 
 ```{R}
+# This plot shows the heart disease history over age. It shows more as age groups are not equal in size.
 ggplot(without_NA, aes(age, heart_disease_history)) +
   geom_jitter(height = 0.03, alpha = 0.3) +
   geom_smooth(method = "glm", method.args = list(family = binomial)) +
-  labs(y = "P(heart disease history)")
+  labs(y = "Heart disease history")
 ```
 
 
@@ -45,6 +47,7 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
   geom_count()
 ```
 ```{R}
+# hemoglobin levels in serum over age groups. Shows us that there is no real correlation.
   ggplot(data = without_NA,
        mapping = aes(x = age_group,
                      y = serum_hemoglobin)) +
