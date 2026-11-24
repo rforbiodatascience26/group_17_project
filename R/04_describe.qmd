@@ -30,14 +30,20 @@ cancer_data_d1 <- cancer_data_augmented |>
 ## Overview tables
 
 ```{r}
+# Regarding age and weight, the different treatment groups have similar averages, suggesting that the composition of the groups in terms of age and weight are similar too. This is good for the statistical strength of the data. Overrepresentation of certain characteristics within treatment groups can be confounding factors, making it difficult to separate treatment effects from the effects caused by these characteristics.
+# Regarding the heart disease history, however, the distribution between people with and without a history of hear disease varies a little more between groups. The treatment group with 1.0 mg estrogen, in particular, differs the most from the other groups.
+
 cancer_data_augmented |>
-  table1(x = formula(~ age + weight | estrogen_treatment),
+  mutate(heart_disease_history = factor(heart_disease_history)) |>
+  table1(x = formula(~ age + weight + heart_disease_history | estrogen_treatment),
          data = _)
 ```
 
 ```{r}
+# Among all treatment groups, there are more patients dead than alive at the time the data was derived. However, the mortality percentage is notably lower in the treatment group with 1.0 mg estrogen compared to the other groups.
+
 cancer_data_augmented |>
-  table1(x = formula(~ vital_status + death_cause | estrogen_treatment),
+  mutate(death_cause_simp = factor(death_cause_simp, levels =  c("prostatic cancer", "other cancer", "cardiorespiratory disease", "other non-cancer", "unknown cause"))) |>
+  table1(x = formula(~ vital_status + death_cause_simp | estrogen_treatment),
          data = _)
 ```
-
