@@ -12,8 +12,7 @@ library(tidyverse)
 
 ### Data retrival
 
-First, we created a local directory to store the data in. For reproducibility, the dataset was then programmatically retrieved directly from the hbiostat online repository. Lastly, the data was loaded into the R environment.
-To avoid overwriting the directory or file every time the code is run, we included if-statements to check whether the directory or file already exist. This way, the directory is only created and the file is only downloaded if they don't already exist.
+First, we created a local directory to store the data in. For reproducibility, the dataset was then programmatically retrieved directly from the hbiostat online repository. Lastly, the data was loaded into the R environment. To avoid overwriting the directory or file every time the code is run, we included if-statements to check whether the directory or file already exist. This way, the directory is only created and the file is only downloaded if they don't already exist.
 
 ```{r}
 raw_dir <- "../data/_raw/"
@@ -51,4 +50,3 @@ write_csv(
   file = str_c(data_dir, data_conv)
   )
 ```
-
