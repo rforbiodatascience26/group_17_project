@@ -76,8 +76,9 @@ ggplot(without_NA, aes(age, heart_disease_history)) +
 
 
 ```{R}
+#| fig-width: 10
 ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=follow_up_months, fill = age_group))+
-  geom_boxplot()
+  geom_boxplot() + facet_wrap(vars(age_group))
 
 # Here, follow up months over estrogen treatment is mapped for each age group. It is interesting to see that the differences between the placebo and 0.2 mg, as for people under 65 the effect seems reversed.
 ```
@@ -88,4 +89,20 @@ ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=heart_disease_hist
   geom_col() +facet_wrap(vars(age_group))
 
 # Here, estrogen treatment is compared to heart disease history for each age group.
+```
+
+```{R}
+#| fig-width: 10
+#| fig-height: 4
+ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=prostatic_acid_phosphatase, fill = age_group))+
+  geom_boxplot() +facet_wrap(vars(age_group)) +scale_y_continuous(trans='log10')
+
+# Here, estrogen treatment is compared to prostatic acid phosphatase, within each age group. Unfortunately it does not show a clear correlation.
+```
+
+```{R}
+#| fig-width: 10
+#| fig-height: 4
+ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=mean_arterial_pressure, fill = age_group))+
+  geom_boxplot() +facet_wrap(vars(age_group)) +scale_y_continuous(trans='log10')
 ```
