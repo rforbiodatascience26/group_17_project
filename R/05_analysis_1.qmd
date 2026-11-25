@@ -105,4 +105,9 @@ ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=prostatic_acid_pho
 #| fig-height: 4
 ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=mean_arterial_pressure, fill = age_group))+
   geom_boxplot() +facet_wrap(vars(age_group)) +scale_y_continuous(trans='log10')
+# mean arterial pressure over estrogen treatment. Again, no clear correlation. 
+```
+```{R}
+ggplot(data=without_NA, mapping=aes(x=estrogen_treatment, y=vital_status, colour=age_group)) +
+  geom_count() + facet_wrap(vars(age_group))
 ```
