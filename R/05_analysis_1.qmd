@@ -110,4 +110,5 @@ ggplot(data = without_NA, mapping=aes(x=estrogen_treatment, y=mean_arterial_pres
 ```{R}
 ggplot(data=without_NA, mapping=aes(x=estrogen_treatment, y=vital_status, colour=age_group)) +
   geom_count() + facet_wrap(vars(age_group))
+# in all groups, 1 mg estrogen seems to have a positive effect on the vital status of the patients
 ```
