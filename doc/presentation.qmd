@@ -1,23 +1,23 @@
 ---
 title: "Estrogen therapy and cardiovascular risk in prostate cancer"
-subtitle: ""
-author: 
-  - "Tijn Friederich - s262015 "
-  - "Caroline Aroha Schmidt Morthorst Rasmussen - s215120 "
-  - "Andrea López Martinez - s243342 "
-  - "Marc Magem Planàs - s253362 "
-institute: "22160 - R for Bio Data Science"
+subtitle: "22160 - R for Bio Data Science"
+author: "Tijn Friederich (s262015) · Caroline Aroha Schmidt (s215120) · Andrea López (s243342) · Marc Magem (s253362)"
 date: today
+date-format: "D MMMM YYYY"
 
-format: 
+format:
   revealjs:
     embed-resources: true
-    theme: simple
+    theme: sky
+    logo: DTU_logo.png
+    footer: "R for Bio Data Science - Group 17 Project"
+    code-block-height: 500px
     smaller: true
     slide-number: true
+    progress: true
     transition: fade
-    code-fold: false
-editor: visual
+    fig-align: center
+    css: styles.css
 
 execute:
   echo: false
@@ -25,42 +25,102 @@ execute:
   message: false
 ---
 
-```{r}
-# Check how to format Quarto presentations in html in: https://pandoc.org/MANUAL.html#structuring-the-slide-show or https://quarto.org/docs/presentations/revealjs/
-```
+<style>
+.reveal #title-slide .title {
+  font-size: 2em;
+  line-height: 1.5;
+}
 
-## Introduction: background {.smaller}
+.reveal #title-slide .author,
+.reveal #title-slide .quarto-title-author-name {
+  font-size: 0.7em;
+  line-height: 3.6;
+}
 
-(slide 2)
+.reveal #title-slide .date {
+          margin-top: auto;
+          padding-top: 2em;
+        }
+</style>
 
-## Introduction: objectives and research question
+### Introduction
 
-(slide 3)
+- Prostatic cancer clinical trial (Byar & Green, 1980; PMID: 7013866) from Vanderbilt Biostatistics (`hbiostat.org/data`).
 
-## Materials and methods: data cleaning and transformation
+- High-dose estrogen was used in the 1970s–1980s to lower testosterone and slow prostate tumor growth.
 
-(slide 4)
+- Dataset of manageable size, real-world untidiness, and rich potential for biological insights despite its historical age.
 
-## Materials and methods: analysis and modeling
+- Evaluate the impact of estrogen therapy and cardiovascular complications on survival across patient profiles.
 
-(slide 5)
+-------------------------------------------------------------------------------
 
-## Results
+### Materials and methods
 
-(slide 6)
 
-## Results
+-------------------------------------------------------------------------------
 
-(slide 7)
+### Data description I
 
-## Results
 
-(slide 8)
 
-## Results
+-------------------------------------------------------------------------------
 
-(slide 9)
+### Data description II
 
-## Discussion
 
-(slide 10) - main findings, limitations and future steps
+
+-------------------------------------------------------------------------------
+
+### Is estrogen treatment effective against prostate cancer?
+
+*Main finding*
+
+![](images/(image-name)){fig-align="center"}
+
+-   Here we can write extracting information.
+-   Here we can write extracting information.
+
+-------------------------------------------------------------------------------
+
+### Does estrogen therapy increase cardiovascular problems?
+
+*Main finding*
+
+![](images/(image-name)){fig-align="center"}
+
+-   Here we can write extracting information.
+-   Here we can write extracting information.
+
+-------------------------------------------------------------------------------
+
+### Is age a rellevant factor for treatment efectiveness or developing cardiovascular problems?
+
+*Main finding*
+
+![](images/(image-name)){fig-align="center"}
+
+-   Here we can write extracting information.
+-   Here we can write extracting information.
+
+-------------------------------------------------------------------------------
+
+### Results
+
+
+
+-------------------------------------------------------------------------------
+
+### Conclusion
+
+- Main findings
+- Limitations
+- Potential future steps
+
+-------------------------------------------------------------------------------
+
+## Thanks for your attention! {.center .vcenter}
+
+-------------------------------------------------------------------------------
+
+## Reference

@@ -1,0 +1,32 @@
+---
+title: "00_all"
+format: html
+editor: visual
+embed-resources: true
+output: asis
+---
+
+# R for Bio Data Science
+
+## Estrogen therapy and cardiovascular risk in prostate cancer
+
+```{r child = "01_load.qmd"}
+```
+
+```{r child = "02_clean.qmd"}
+```
+
+```{r child = "03_augment.qmd"}
+```
+
+```{r child = "04_describe.qmd"}
+```
+
+```{r child = "05_analysis_1.qmd"}
+```
+
+```{r child = "06_analysis_2.qmd"}
+```
+
+```{r child = "07_analysis_3.qmd"}
+```
