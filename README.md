@@ -1,6 +1,17 @@
 # R for Bio Data Science Project - Group 17
 
-## Overview
+## Contributors
+
+| Name                                       | Student number | GitHub username |
+|--------------------------------------------|----------------|-----------------|
+| Tijn Friederich                            | s262015        | DTUTWFriederich |
+| Caroline Aroha Schmidt Morthorst Rasmussen | s215120        | CR-Biotech      |
+| Andrea López Martinez                      | s243342        | andrealomar     |
+| Marc Magem Planàs                          | s253362        | mmagemm         |
+
+
+## Presentation link
+
 
 
 ## Dataset
@@ -33,20 +44,3 @@ The dataset contains N = 502 observations across 18 variables:
 | `ap`    | Serum prostatic acid phosphatase               | Continuous  |
 | `bm`    | Presence of bone metastases                    | Binary (`0` = no, `1` = yes) |
 | `sdate` | Date of study                                  | Numeric     |
-
-
-## Project structure
-
-
-## How to run
-
-
-## Contributors
-
-| Name                                       | Student number | GitHub username |
-|--------------------------------------------|----------------|-----------------|
-| Tijn Friederich                            | s262015        | DTUTWFriederich |
-| Caroline Aroha Schmidt Morthorst Rasmussen | s215120        | CR-Biotech      |
-| Andrea López Martinez                      | s243342        | andrealomar     |
-| Marc Magem Planàs                          | s253362        | mmagemm         |
-
