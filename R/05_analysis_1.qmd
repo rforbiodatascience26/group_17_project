@@ -9,8 +9,10 @@ editor: visual
 ```{r}
 library("tidyverse")
 
-cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv", 
-                        show_col_types = FALSE)
+cancer_data_augmented <- read_csv(file = "../data/03_cancer_data_augmented.csv",
+                                  show_col_types = FALSE) |>
+  mutate(age_group = factor(age_group, levels = c("<65", "65-74", ">=75")))
+
 ```
 
 ### Age Group Analyses
