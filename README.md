@@ -12,6 +12,7 @@
 
 ## Presentation link
 
+(link)
 
 
 ## Dataset
@@ -44,3 +45,8 @@ The dataset contains N = 502 observations across 18 variables:
 | `ap`    | Serum prostatic acid phosphatase               | Continuous  |
 | `bm`    | Presence of bone metastases                    | Binary (`0` = no, `1` = yes) |
 | `sdate` | Date of study                                  | Numeric     |
+
+
+## AI Use Declaration
+
+Portions of this code and documentation were assisted by AI tools (Gemini, Claude). All code is reviewed, tested and maintained by the project authors.
